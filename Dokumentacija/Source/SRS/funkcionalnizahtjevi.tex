@@ -1,0 +1,183 @@
+\subsection{Funkcionalni zahtjevi}
+
+\subsubsection{Kreiranje novog korisničkog računa}
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+ Opis: & Sistem pruža korisniku opciju kreiranja novog korisničkog računa kojim će se istom korisniku omogućiti pristup personalnom Bulletin boardu\\
+Preduslovi: & Korisnik ima internet konekciju i validnu ličnu email adresu ili račun na nekoj od stranica: Instagram, Google, Facebook.\\
+Ulaz: & Email adresa i password \\
+Uslovi validnosti: & Postojeća email adresa \\
+Procesiranje: & Korisnik unosi svoje podatke i sistem ih validira, te kreira korisnički račun povezan sa unesenom email adresom, nakon čega se pristupa Bulletin boardu \\
+Izlaz: & Kreiran korisnički račun \\
+Funkcionalni zahtjevi: & Sistem omogućava kreiranje novog korisničkog računa \\
+Prioritet realizacije: & 1
+
+\end{tabu}
+\newpage
+\subsubsection{Prijava na sistem}
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+ Opis: & Korisnik se prijavljuje na sistem koristeći već kreiran korisnički račun i pristupa svom Bulletin boardu koji kasnije može uređivati\\
+Preduslovi: & Korisnik ima kreiran korisnički račun \\
+Ulaz: & Podaci potrebni za izvršenje prijave (email i password) ili prijava na povezani Google, Instagram ili Facebook račun \\
+Uslovi validnosti: & Ispravno uneseni podaci (ili postojeći korisnički račun sa društvenih mreža) \\
+Procesiranje: & Korisnik unosi svoje podatke u predviđena polja te ih sistem validira u svrhu omogućavanja pristupa korisničkom boardu ili ispisa greške ako podaci nisu validni\\
+Izlaz: & Otvara se korisnikova početna stranica (Bulletin board) sa kojom on nastavlja daljnji rad (uređivanje) \\
+Funkcionalni zahtjevi: & Sistem omogućava: Prijava na sistem, otvaranje sesije - sistem nudi sigurnost na ovaj način. \\
+Prioritet realizacije & 1 \\
+\end{tabu}
+\newpage
+\subsubsection{Odjava sa sistema}
+
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+ Opis: & Korisnik se odjavljuje sa sistema i gubi pristup svom Bulletin boardu dok se ne prijavi opet \\
+Preduslovi: & Korisnik je prethodno već prijavljen na sistem \\
+Ulaz: & Odabir opcije za odjavu sa sistema \\
+Uslovi validnosti: & - \\
+Procesiranje: & Korisnik bira opciju odjave, sistem je procesira i odjavljuje korisnika sa sistema, onemogućavajući daljnji rad na boardu \\
+Izlaz:& Korisnik je preusmjeren na login stranicu \\
+Funkcionalni zahtjevi: & Sistem omogućava odjavu \\
+Prioritet realizacije: & 1
+
+\end{tabu}
+\newpage
+
+
+\subsubsection{Brisanje korisničkog računa}
+
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+Opis: & Korisnik ima mogućnost da izbriše svoj profil u slučaju kada više ne želi koristiti aplikaciju. \\
+Preduslovi: & Korisnik je prijavljen na sistem. \\
+Ulaz: & Forma/Dijalog konfirmacije (Da li ste sigurni da želite obrisati profil? ) \\
+Uslovi validnosti: & Korisnik mora imati profil na sistemu, ali svakako neće biti u mogućnosti da pristupi ruti za brisanje računa u slučaju da nije logovan na sistem \\
+Procesiranje: & Kada korisnik klikne na opciju izbriši profil aktivira se konfirmacijski prozor u kojem korisnik ima dvije opcije Da/Ne. U slučaju da korisnik klikne na opciju “DA” modifikujemo u bazi kolonu “izbrisan” tj. Postavljamo je na true. Nakon promjene u bazi korisniku se prikazuje povratna poruka da mu je profil izbrisan i onda  prozor za prijavu/registraciju. \\
+Izlaz: & Povratna poruka da je korisnikov profil izbrisan. \\
+Funkcionalni zahtjevi: & Sistem omogućava: Brisanje profila \\
+Prioritet realizacije: & 1
+
+\end{tabu}
+\newpage
+\subsubsection{Modifikacija korisničkog računa}
+
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+ Opis: & Korisnik ima mogućnost da mjenja podatke koje je prilikom registracije izabrao. \\
+Preduslovi: & Korisnik je prijavljen na sistem. \\
+Ulaz: & Forma/Dijalog update-a podataka koji sadrži labele i inpute ispunjene unesenim podacima prikom registracije. \\
+Uslovi validnosti: & Korisnik mora imati profil na sistemu. Novi inputi moraju biti validirani. (Email mora biti u obliku email adrese) \\
+Procesiranje: & Aplikacija otvara formu za uređivanje sa labelema i inputima ispunjenima sa unesenim podacima prilikom registracije. Korisnik upisuje nove podatke, pri čemu se inputi validiraju. Kada je korisnika zadovoljan sa novo unesenim podacima klikom na dugme Save, modifikuje se red u tabeli korisnika. \\
+Izlaz: & Pregled pinboarda sa promjenjenim podacima. \\
+Funkcionalni zahtjevi: & Sistem omogućava: Modifikacija korisničkog računa i validaciju novo unesenih podataka. \\
+Prioritet realizacije: & 2
+
+\end{tabu}
+\newpage
+\subsubsection{Dodavanje slike}
+
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+ Opis: & Korisnik sistema bira sliku koju želi da postavi na svoj Bulletin board i uz nju piše željeni opis\\
+Preduslovi: & Kreiran korisnički račun \\
+Ulaz: & Slika (obavezno) i željeni opis (opcionalno) \\
+Uslovi validnosti: & Izvršen download željene slike, te odabrana opcija za dodavanje slika \\
+Procesiranje: & Korisnik vrši izbor slike koju želi da postavi na svoj personalizirani board te, po želji, dodaje opis uz istu \\
+Izlaz: & Prikaz postavljene slike zajedno sa opisom \\
+Funkcionalni zahtjevi: & Sistem omogućava: odabir slike, unos opisa, prekid opcije postavljanja, pregled postavljene slike \\
+Prioritet realizacije: & 2
+
+\end{tabu}
+\newpage
+\subsubsection{Okretanje (rotiranje) slike}
+
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+ Opis: & Korisnik sistema bira sliku koju je prethodno postavio i okreće je u željenoj direkciji\\
+Preduslovi: & Kreiran korisnički račun \\
+Ulaz: & Slika koja je prehodno postavljena \\
+Uslovi validnosti: & Odabrana opcija za rotiranje slike \\
+Procesiranje: & Korisnik vrši izbor slike koju želi da rotira \\
+Izlaz: & Prikaz rotirane slike zajedno sa opisom \\
+Funkcionalni zahtjevi: & Sistem omogućava: odabir slike, rotiranje iste, pregled rotirane slike \\
+Prioritet realizacije: & 2
+
+\end{tabu}
+\newpage
+\subsubsection{Brisanje slike}
+
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+Opis: & Korisnik sistema briše sliku koju je prethodno dodao i samim tim je uklanja sa sadržaja svog boarda \\
+Preduslovi: & Korisnik je prijavljen sa sistem i prethodno je postavio sliku \\
+Ulaz: & Slika koju je potrebno brisati \\
+Uslovi validnosti: & Slika je označena \\
+Procesiranje: & Korisnik selektuje sliku koju želi ukloniti (izbrisati) sa sadržaja svog boarda, te sistem istu briše uz prikazivanje poruke validacije u svrhu obavještavanja da li je zahtjev ispunjen ili nije \\
+Izlaz: & Poruka o uspješnom brisanju slike \\
+Funkcionalni zahtjevi: & Sistem omogućava: prikaz svih postavljenih slika, selektovanje slike koju korisnik želi brisati, brisanje slike iz sistema, prikaz poruke o uspješnom brisanju \\
+Prioritet realizacije: & 2
+
+\end{tabu}
+\newpage
+\subsubsection{Dodavanje posta}
+
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+Opis: & Sistem omogućava korisniku dodavanje novih personaliziranih postova na Bulletin board \\
+Preduslovi: & Korisnik je prijavljen na sistem, te je odabrana opcija za dodavanje postova \\
+Ulaz: & Željeni tekst \\
+Uslovi validnosti: &  Odabrana opcija za dodavanje posta \\
+Procesiranje: & Korisnik bira opciju za dodavanje posta, unosi željeni tekst, nakon čega je post vidljiv i dodan na board \\
+Izlaz: & Prikaz dodanog posta na Bulletin boardu \\
+Funkcionalni zahtjevi: & Sistem omogućava: dodavanje posta, prikaz posta na glavnom ekranu aplikacije, mogućnost manipulisanja dodanim postom \\
+Prioritet realizacije: & 2
+
+\end{tabu}
+\newpage
+\subsubsection{Brisanje posta}
+
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+Opis: & Korisnik sistema uklanja (odnosno briše) post koji je prethodno dodao na svoj board\\
+Preduslovi: & Korisnik je prijavljen sa sistem i prethodno je dodao post \\
+Ulaz: & Post koji je potrebno brisati \\
+Uslovi validnosti: & Post je označen \\
+Procesiranje: & Korisnik selektuje post koji želi brisati, te sistem isti briše \\
+Izlaz: & Poruka o uspješnom brisanju posta \\
+Funkcionalni zahtjevi: & Sistem omogućava: prikaz svih dodanih postova, selektovanje posta koji korisnik želi brisati, brisanje posta iz sistema, prikaz poruke o uspješnom brisanju \\
+Prioritet realizacije: & 2
+
+\end{tabu}
+\newpage
+\subsubsection{Sakrivanje posta}
+
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+Opis: & Korisnik sistema sakriva ali i ne uklanja trajno post koji je prethodno dodao na svoj board\\
+Preduslovi: & Korisnik je prijavljen sa sistem i prethodno je dodao post koji sada želi sakriti \\
+Ulaz: & Post koji je potrebno sakriti \\
+Uslovi validnosti: & Post je označen \\
+Procesiranje: & Korisnik selektuje post koji želi sakriti, te sistem isti sakriva \\
+Izlaz: & \\
+Funkcionalni zahtjevi: & Sistem omogućava: prikaz svih dodanih postova, selektovanje posta koji korisnik želi sakriti \\
+Prioritet realizacije: & 2
+
+\end{tabu}
+\newpage
+\subsubsection{Dodavanje posta sa datumom (kalendar)}
+
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+Opis & Korisnik na svoj pinboard profil dodaje post sa postavljenim datumom \\
+Preduslovi & Korisnik je prijavljen na sistem \\
+Ulaz & Odabir datuma, boje posta i teksta vezanog za post  \\
+Uslovi validnosti & / \\
+Procesiranje & Bira se datum na kalendaru, unosi se tekst za post i post se spašava klikom na dugme spasi\\
+Izlaz & Novi post sa datumom se dodaje na pinboard feed \\
+Funkcionalni zahtjevi & Dodavanje posta, odabir datuma na kalendaru \\
+Prioritet realizacije & 2 \\
+\end{tabu}
+\newpage
+\subsubsection{Dijeljenje sadržaja sa društvenih mreža}
+
+
+\begin{tabu} to 1.2\textwidth {p{4cm}p{8cm}}
+Opis: & Korisnik sistema dijeli na pinboard sadržaj koji je prethodno postavljen na jednu od ponuđenih društvenih mreža \\
+Preduslovi: & Korisnik ima kreiran korisnički račun na ponuđenim društvnenim mrežama \\
+Ulaz: & Postojeći sadržaj na društvenim mrežama koji korisnik želi da podijeli \\
+Uslovi validnosti: & Odabran sadržaj koji se želi podijeliti \\
+Procesiranje: & Korisnik bira na društvenim mrežama sadržaj koji želi da podijeli na pinboard, te prolazi kroz dijalog dijeljenja u sistemu pinboarda pri čemu može da prihvati već postojeće postavke/opise, izmijeni ih ili odustane od samog procesa dijeljenja. \\
+Izlaz: & Sadržaj podijeljen sa društvene mreže na pinboard
+Funkcionalni zahtjevi: Sistem omogućava: povezivanje sa odabranom društvenom mrežom, dijeljenje sadržaja postavljenog na društvenoj mreži, preusmjeravanje na link originalnog posta na društvenoj mreži \\
+Prioritet realizacije: & 3
+
+\end{tabu}
+\newpage

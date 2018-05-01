@@ -1,0 +1,65 @@
+\section*{Historijat revizije dokumenta}
+
+
+\begin{center}
+\begin{tabular}{ |c |c |c |c|} \hline
+ Datum & Verzija & Autor & Komentar\\ \hline
+ 13.4.2018. & v1.1 & PinboardTeam  & Ispravljene greške i dodan korisnički interfejs. \\  \hline
+ 28.3.2018. & v1.0 & PinboardTeam  & Prva verzija dokumenta. \\  \hline
+\end{tabular}
+\end{center}
+\newpage
+
+
+\section{Uvod}
+\subsection{Svrha dokumenta}
+Ovaj dokument je osnovna referenca za opis softverskog proizvoda BulletinBoard. Sadrži informacije o zahtjevima i karakteristikama koje opisuju dati softverski sistem.
+
+Kroz poglavlja ovog dokumenta opisani su namjena softverskog sistema, načini korištenja kao i uslovi koji moraju biti zadovoljeni da bi on ispravno funkcionisao. 
+Funkcionalni i nefunkcionalni zahtjevi postavljeni pred sistem, kao i načini na koje su oni zadovoljeni su pobrojani kao važan dio dokumentovanja sistema.
+Korisnik treba da stekne jasnu sliku o načinu korištenja softvera, kao i osnovno znanje o mogućim postupcima prilikom otklanjanja grešaka u radu. Razvojni tim koristi dokument kao referencu za zahtjeve i ograničenja postavljena pred njih.
+\subsection{Opseg (scope) dokumenta}
+Dokument služi razvojnom timu i korisnicima sistema kako bi stekli sliku o namjeni i funkcionalnostima prozivoda. To se postiže detaljnim opisivanjem načina korištenja, funkcionalnih zahtjeva koji se postavljaju pred proizvod kao i nefunkcionalnih zahtjeva i ograničenja. 
+
+Proizvod je namjenjen širokoj publici korisnika tako da koristi vokabular razumljiv svima. Rječnik tehničkih pojmova je priložen na početku dokumenta kao referenca za bolje razumjevanje.
+
+Koriste se UML dijagrami za opis osnovnih funkcionalnosti, procesa i aktivnosti unutar sistema. Oni pružaju općenitu sliku dešavanja u sistemu, ne ulazeći u implementacione detalje pojedinačnih funkcionalnosti.
+
+Obzirom da dokumentacija u svakom trenutku treba ispravno opisivati sistem o kojem piše, dokument može doživljavati eventualne izmjene u skladu sa promjenama zahtjeva ili osobina softvera. Te promjene su zabilježene na početku dokumenta u poglavlju Historijat revizije dokumenta.
+\newpage
+\subsection{Definicije, akronimi i kratice}
+
+\begin{center}
+    \begin{longtable}{|c |m{8cm} |} \hline
+        \textbf{Pojam} & \textbf{Opis} \\ \hline
+        \textbf{API} & Application Programming Interface, pristupna tačka softverskog sistema pomoću koje sistem razmjenjuje podatke sa drugim sistemima ili korisnicima. \\  \hline
+        \textbf{Aplikacija} & Računarski program namnjenjen izvršavanju jednog ili više korisničkih zahtjeva. \\ \hline
+        \textbf{Cloud} & Korištenje resursa iznajmljenih od drugih kompanija ili organizacija za potrebe hostinga aplikacija, spremanja podataka i sličnih internet usluga. \\ \hline
+        \textbf{ERD} & Entity Relationship Diagram, dijagram koji opisuje strukturu baze podataka određenog sistema. \\  \hline
+        \textbf{Funkcionalni zahtjev} & Opis servisa koje sistem nudi, ponašanje sistema na određene ulaze i u određenim situacijama.\\ \hline
+        \textbf{Hosting} & Usluga koja omogućava pristup web stranicama ili aplikacijama putem internet veze. Kompanije vlasnici serverskih mašina iznajmljuju mašine ili njihove dijelove krajnjem klijentu za potrebe informacionog sistema. \\ \hline
+        \textbf{HTTP} & Hypertext Transfer Protocol je aplikacioni protokol koji služi za prenos podataka na world wide webu. \\  \hline
+        \textbf{IEEE} & Institute of Electrical and Electronics Engineers, svjetski institut (udruženje) inženjera elektrotehnike. Zaslužan za standardizaciju u mnogim poljima informatike i elektrotehnike. \\  \hline
+        \textbf{IEEE 830-1998 Standard} & Set preporučenih praksi za definisanje SRS (Software Requirements Specification) dokumenta kao osnovne dokumentacije softverskog sistema. \\  \hline
+        \textbf{ISP} & Internet Service Provider, pružalac usluge konekcije na internet. Iznajmljuje uslugu pristupa, kao i potrebni hardver i softver za korištenje interneta. \\ \hline
+        \textbf{Nefunkcionalni zahtjev} & Ograničenja na servise koje sistem nudi u zavisnosti od vremena, okolnosti, razvojnog procesa, standarda i sl. \\ \hline
+        \textbf{Operativni sistem} & Sistemski softver koji upravlja komunikacijom između softvera i hardvera. \\ \hline
+        \textbf{Provider} & Pružalac određene usluge. (npr. Internet Service Provider) \\ \hline
+        \textbf{Server} & Računar koji pruža uslugu drugim, klijentskim računarima.  \\ \hline
+        \textbf{SLA} & Service Level Agreement je ugovor kojim se definiše vrsta i nivo usluge između klijenta i onog ko mu nudi uslugu (servis provajdera). \\ \hline
+        \textbf{SRS} & Software Requirements Specification je osnovni dio dokumentovanja softverskog sistema. Sadrži funkcionalne i nefunkcionalne zahtjeve, dijagrame aktivnosti i načina korištenja, te interakcije unutar sistema. Konačno, SRS definira i interfejse pomoću kojih sistem komunicira sa vanjskim svjetom, konkretno sa drugim korisnicima i sistemima.\\ \hline
+        \textbf{Tooltip} & Pomoćni tekst iznad komponenti grafičkog interfejsa koji služi da pojasni funkcionalnost ili njen status. \\  \hline
+        \textbf{UML} & Unified Modeling Language je grafički jezik za vizualiziranje, specificiranje, konstruiranje i dokumentiranje sistema programske podrške prema definiciji OMG (Object Management Group) grupe. \\  \hline
+        \textbf{Web Aplikacija} & Aplikacija koja se izvršava u web pregledniku korisničkog računara. \\ \hline
+        \textbf{Web Preglednik} & Aplikativni softver koji omogućava pretraživanje world wide weba. \\ \hline
+    \end{longtable}
+\end{center}
+\newpage
+\subsection{Standardi dokumentovanja}
+Dokument je pisan u skladu sa IEEE 830-1988 standardom.
+Dokument je pisan u Latex sistemu za pripremu dokumenata.
+Autori dokumenta su članovi tima SI Pinboard Team.
+\subsection{Reference}
+\begin{itemize}
+  \item IEEE 830 - 1998 Standard -  \url{https://github.com/SoftverInzenjeringETFSA/2018_BulletinBoard/raw/master/Dokumentacija/Reference/IEEE830.pdf}
+\end{itemize}

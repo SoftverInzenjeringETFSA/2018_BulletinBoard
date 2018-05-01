@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{array}
+\usepackage{tabu}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{graphicx}
+\graphicspath{ {use_cases/} }
+\newcommand{\breakline}{\rule{\linewidth}{0.5mm}}
+
+
+\title{
+{
+    \includegraphics[width=0.25\textwidth]{SRS/slike/logo.png}~\\[0.1cm]
+    \textsc{\Large Univerzitet u Sarajevu}\\[0.2cm]  
+    \textsc{\Large Elektrotehnički fakultet} \\[0.5cm] 
+    \huge \bfseries BulletinBoard} \\[0.4cm] 
+    \breakline \\[0.5cm]
+    \textsc{\Large Software Requirements Specification}\\[0.4cm]
+    }
+    
+\author{\begin{tabular}{rl}
+  \textbf{Mentori:} & R. prof. dr Novica Nosović, dipl.ing.el.e \\ &
+                    Haseljić Hana, MoE \\
+  \textbf{Članovi tima:} & Građanin Ehvan \\ 
+                        & Hadžihasanović Lamija \\ 
+                        & Hadžirović Kenan \\ 
+                        & Hajdarević Ena \\ 
+                        & Halilović Haris \\ 
+                        & Halilović Irhad \\ 
+                        & Haseljić Emira
+\end{tabular}}
+
+\date{\textbf{Akademska 2017/2018}}
+
+\begin{document}
+\maketitle
+\newpage
+\renewcommand{\contentsname}{Sadržaj}
+\tableofcontents
+\newpage
+
+\input{uvod.tex}
+\newpage
+\input{opis.tex}
+\newpage
+\input{vanjskiinterface.tex}
+\newpage
+\input{funkcionalnizahtjevi.tex}
+\newpage
+\input{nefunkcionalnizahtjevi.tex}
+\input{atributikvalitete.tex}
+\newpage
+\input{opispogleda.tex}
+\end{document}

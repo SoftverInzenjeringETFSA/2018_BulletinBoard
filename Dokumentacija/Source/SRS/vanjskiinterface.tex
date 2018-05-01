@@ -1,0 +1,14 @@
+\section{Konkretni zahtjevi}
+\subsection{Vanjski interfejsi}
+Interferjs omogućava komunikaciju sistema sa vanjskim ulazom/izlazom. To može da bude korisnik ili neki drugi sistem. Poštujući principe razvoja softvera, interfejs ne otkriva unutrašnju strukturu sistema već samo služi za razmjenu informacija.
+\subsubsection{Korisnički interfejs}
+Obzirom da su svi korisnici sistema podjednaki, nije potrebno implementirati sistem permisija. Razlikovanje među korisnicima se vrši na osnovu njihovih pristupnih podataka. Svaki korisnik ima pristup svom sadržaju.
+
+Komunikacija sa korisnikom se radi na intuitivan način. Kako bi se izvršilo diferenciranje između drugih dijelova sistema, koriste se lako uočljive promjene u boji. Kontrast boje fonta u odnosu na podlogu omogućava laku uočljivost poruka. Tooltipovi daju savjete za korištenje funkcionalnosti sistema i sadrže osnovne informacije vezane za dati kontekst.
+
+Sve funkcionalnosti korisničkog interfejsa upućene su ka lakšem dodavanju i pregledu sadržaja, kao i lakom uklanjanju i modifikaciji postojećeg sadržaja.
+
+\subsubsection{Vanjski interfejsi}
+Omogućena je komunkacija sa vanjskim sistemima, prvenstveno društvenim mrežama. Na taj način se korisniku daje mogućnost dijeljenja sadržaja sa društvenih mreža Instagram i Facebook na svoj profil unutar sistema. Omogućeno je i dijeljenje sadržaja sa sistema na druge platforme.
+
+Komunikacija sa društvenim mrežama se odvija putem standardizovanog API-ja koji nudi data društvena mreža (Facebook, Instagram, Google).
