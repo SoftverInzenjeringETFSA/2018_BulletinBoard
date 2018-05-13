@@ -5,10 +5,7 @@ import bulletinboard.project.bulletinboard.Domain.Models.User;
 import bulletinboard.project.bulletinboard.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,7 +29,7 @@ public class AccountController {
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
-    public User createUser(User user) {
+    public User createUser(@RequestBody User user) {
         return repository.insert(user);
     }
 }

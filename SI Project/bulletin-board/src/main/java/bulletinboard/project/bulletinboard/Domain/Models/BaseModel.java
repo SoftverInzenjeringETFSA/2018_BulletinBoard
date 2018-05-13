@@ -5,14 +5,14 @@ import java.util.UUID;
 
 public class BaseModel {
     @Id
-    private UUID id;
+    private int id;
 
-    public UUID getId()
+    public int getId()
     {
         return this.id;
     }
 
-    public void setId(UUID id)
+    public void setId(int id)
     {
         this.id = id;
     }
