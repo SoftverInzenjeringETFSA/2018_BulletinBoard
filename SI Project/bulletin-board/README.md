@@ -4,7 +4,7 @@ REST API za bulletinboard
 
 ## Getting Started
 
-* Najbolje koristit Intellij IDE za pokretanje  i rad na projektu
+* POTREBNO koristiti Intellij IDE za pokretanje  i rad na projektu, sadrzan je .idea file koji olkasava postavljanje konfiguracije
 * Za dokumentovanje APIja koristi se SwaggerUI
 * Nakon pokretanja projekta, svi dostupni endovi se mogu vidjeti na (/swagger-ui.html) (tj http://localhost:8080/swagger-ui.html)
 
