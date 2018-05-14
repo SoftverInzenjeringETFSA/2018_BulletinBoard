@@ -1,13 +1,21 @@
 package bulletinboard.project.bulletinboard.Domain.Models;
 
 import java.util.UUID;
+import javax.persistence.*;
+import java.util.Set;
+import org.springframework.data.annotation.Id;
 
 public class User extends BaseModel{
+
+
     private String firstName;
     private String lastName;
     private String username;
     private String password;
+    private String email;
     private String image;
+    private Set<String> roles;
+
 
     public String getFirstName() {
         return firstName;
@@ -47,5 +55,20 @@ public class User extends BaseModel{
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Set<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

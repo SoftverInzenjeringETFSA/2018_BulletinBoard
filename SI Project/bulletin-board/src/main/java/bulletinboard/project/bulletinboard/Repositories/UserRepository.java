@@ -11,6 +11,7 @@ public interface UserRepository extends MongoRepository<User, String> {
     public List<User> findAllBy();
     public List<User> findDistinctFirstBy(UUID id);
     public User findByFirstName(String firstName);
+    public User findByUsername(String username);
     public List<User> findByLastName(String lastName);
     public User insert(User user);
 
