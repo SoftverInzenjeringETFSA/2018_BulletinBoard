@@ -36,4 +36,21 @@ public class PostServiceImpl implements PostService {
             return post.get(0);
         return null;
     }
+
+    @Override
+    public boolean hidePost(String id) {
+        Post post = this.findById(id);
+        if(post != null)
+        {
+            if (!post.isHidden()) {
+                post.setHidden(true);
+
+            }
+            else {
+                post.setHidden(false);
+            }
+            return true;
+        }
+        return false;
+    }
 }

@@ -9,5 +9,6 @@ public interface PostService {
     List<Post> getAllPostsWithDate();
     int createPost(Post post);
     Post findById(String id);
+    boolean hidePost(String id);
 
 }

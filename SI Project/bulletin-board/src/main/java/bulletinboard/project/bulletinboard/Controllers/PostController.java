@@ -46,4 +46,9 @@ public class PostController {
     public int addPostWithDate(Post post) {
         return postService.createPost(post);
     }
+
+    @PostMapping("/hidePost")
+    public boolean hidePost(String id) {
+        return postService.hidePost(id);
+    }
 }
