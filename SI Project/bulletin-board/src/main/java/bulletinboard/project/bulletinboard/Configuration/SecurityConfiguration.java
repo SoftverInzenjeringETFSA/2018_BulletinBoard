@@ -13,6 +13,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import bulletinboard.project.bulletinboard.restAuth.RESTAuthenticationEntryPoint;
 import bulletinboard.project.bulletinboard.restAuth.RESTAuthenticationFailureHandler;
 import bulletinboard.project.bulletinboard.restAuth.RESTAuthenticationSuccessHandler;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+
 
 @Configuration
 @EnableWebSecurity
@@ -24,6 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private RESTAuthenticationFailureHandler authenticationFailureHandler;
     @Autowired
     private RESTAuthenticationSuccessHandler authenticationSuccessHandler;
+
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -38,6 +43,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
        return super.authenticationManagerBean();
     }
 
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/**").allowedMethods("GET", "POST", "PUT", "DELETE").allowedOrigins("*")
+                .allowedHeaders("*");
+        }
+        };
+    }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -45,9 +61,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // rute koje zahtjevaju authenticated user-a definirajte ovdje npr. ...antMatchers("/welcome","/users","/posts")....
         http.authorizeRequests().antMatchers("/welcome").authenticated();
         http.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint);
-        http.formLogin().successHandler(authenticationSuccessHandler);
-        http.formLogin().failureHandler(authenticationFailureHandler);
-        http.formLogin().permitAll();
         http.logout().logoutSuccessUrl("/");
         http.csrf().disable();
     }
