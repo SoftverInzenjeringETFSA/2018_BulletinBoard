@@ -17,6 +17,21 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    @RequestMapping("/getAllPosts")
+    public List<Post> getAllPosts() {
+        return postService.getAllPosts();
+    }
+
+    @RequestMapping("/getPost")
+    public Post getPost(String id) {
+        return postService.findById(id);
+    }
+
+    @PostMapping("/addPost")
+    public int addPost(Post post) {
+        return postService.createPost(post);
+    }
+
     @RequestMapping("/getAllPostsWithDate")
     public List<Post> getAllPostsWithDate() {
         return postService.getAllPostsWithDate();
@@ -28,7 +43,7 @@ public class PostController {
     }
 
     @PostMapping("/addPostWithDate")
-    public int addPost(Post post) {
+    public int addPostWithDate(Post post) {
         return postService.createPost(post);
     }
 }

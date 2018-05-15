@@ -19,6 +19,29 @@ public class Post extends BaseModel {
     private boolean IsHidden;
     private Date Date;
 
+    /*
+    public Post(){}
+
+    public Post(int userID, String title, String desc, String color, Date dateCreated, boolean isHidden) {
+        this.UserId=userID;
+        this.Title=title;
+        this.Description=desc;
+        this.Color=color;
+        this.DateCreated=dateCreated;
+        this.IsHidden=isHidden;
+    }
+
+    public Post(int userID, String title, String desc, String color, Date dateCreated, boolean isHidden, Date date) {
+        this.UserId=userID;
+        this.Title=title;
+        this.Description=desc;
+        this.Color=color;
+        this.DateCreated=dateCreated;
+        this.IsHidden=isHidden;
+        this.Date=date;
+    }
+
+    */
     public int getUserId() {
         return UserId;
     }
