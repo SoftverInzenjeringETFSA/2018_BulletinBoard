@@ -17,10 +17,10 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @RequestMapping("/getAllPosts")
-    public List<Post> getAllPosts() {
-        return postService.getAllPosts();
-    }
+//    @RequestMapping("/getAllPosts")
+//    public List<Post> getAllPosts() {
+//        return postService.getAllPosts();
+//    }
 
     @RequestMapping("/getPost")
     public Post getPost(String id) {

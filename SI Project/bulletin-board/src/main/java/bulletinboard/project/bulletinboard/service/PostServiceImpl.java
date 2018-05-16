@@ -14,10 +14,10 @@ public class PostServiceImpl implements PostService {
     @Autowired
     private PostRepository postRepository;
 
-    @Override
-    public List<Post> getAllPosts() {
-        return postRepository.getAllPosts();
-    }
+//    @Override
+//    public List<Post> getAllPosts() {
+//        return postRepository.getAllPosts();
+//    }
 
     @Override
     public List<Post> getAllPostsWithDate() {
