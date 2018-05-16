@@ -2,6 +2,7 @@ package bulletinboard.project.bulletinboard.Controllers;
 
 
 import bulletinboard.project.bulletinboard.Domain.Models.Post;
+import bulletinboard.project.bulletinboard.Domain.Models.SocialMediaPost;
 import bulletinboard.project.bulletinboard.service.PostService;
 import jdk.nashorn.api.scripting.JSObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,15 @@ public class PostController {
     @PostMapping("/hidePost")
     public boolean hidePost(String id) {
         return postService.hidePost(id);
+    }
+
+    @PostMapping("/addSocialMediaPost")
+    public int addSocialMediaPost(String url, String provider) {
+        return postService.createSocialMediaPost(new SocialMediaPost(provider, url));
+    }
+
+    @RequestMapping("/getSocialMediaPosts")
+    public List<SocialMediaPost> getSocialMediaPosts() {
+        return postService.getAllSocialMediaPosts();
     }
 }
