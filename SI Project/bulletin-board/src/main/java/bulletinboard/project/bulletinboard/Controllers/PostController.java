@@ -1,17 +1,20 @@
 package bulletinboard.project.bulletinboard.Controllers;
 
 
+import bulletinboard.project.bulletinboard.Domain.Models.Image;
 import bulletinboard.project.bulletinboard.Domain.Models.Post;
 import bulletinboard.project.bulletinboard.service.PostService;
 import jdk.nashorn.api.scripting.JSObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/Post")
 public class PostController {
 
     @Autowired
@@ -22,14 +25,32 @@ public class PostController {
 //        return postService.getAllPosts();
 //    }
 
-    @RequestMapping("/getPost")
+    @RequestMapping("/get")
     public Post getPost(String id) {
         return postService.findById(id);
     }
 
-    @PostMapping("/addPost")
-    public int addPost(Post post) {
+    @RequestMapping("/getAll")
+    public List<Post> getAll()
+    {
+        return postService.getAll();
+    }
+
+    @RequestMapping("/add")
+    public int addPost(@RequestBody Post post) {
         return postService.createPost(post);
+    }
+
+    @RequestMapping("/addImage")
+    public boolean addImage(@RequestBody Image image)
+    {
+        return postService.addImage(image);
+    }
+
+    @RequestMapping("/getImages")
+    public List<Image> getImages()
+    {
+        return postService.getImages();
     }
 
     @RequestMapping("/getAllPostsWithDate")
@@ -51,4 +72,6 @@ public class PostController {
     public boolean hidePost(String id) {
         return postService.hidePost(id);
     }
+
+
 }
