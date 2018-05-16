@@ -1,6 +1,8 @@
 package bulletinboard.project.bulletinboard.service;
 
+import bulletinboard.project.bulletinboard.Domain.Models.Image;
 import bulletinboard.project.bulletinboard.Domain.Models.Post;
+import bulletinboard.project.bulletinboard.Domain.Models.SocialMediaPost;
 
 import java.util.List;
 
@@ -11,4 +13,10 @@ public interface PostService {
     Post findById(String id);
     boolean hidePost(String id);
 
+    int createSocialMediaPost(SocialMediaPost post);
+    List<SocialMediaPost> getAllSocialMediaPosts();
+
+    boolean addImage(Image image);
+    List<Image> getImages();
+    List<Post> getAll();
 }

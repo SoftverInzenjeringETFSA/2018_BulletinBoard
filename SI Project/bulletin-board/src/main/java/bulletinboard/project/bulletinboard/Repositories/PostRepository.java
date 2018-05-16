@@ -9,6 +9,4 @@ import java.util.List;
 public interface PostRepository extends MongoRepository<Post, String> {
     @Query("{'Date':{$ne:null}}")
     List<Post> getAllPostsWithDate();
-
-    //List<Post> getAllPosts();
 }
