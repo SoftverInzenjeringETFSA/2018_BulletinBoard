@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Dashboard.css';
 import Post from '../post/Post';
 import Image from '../image/Image';
+import SocialMediaPost from '../socialMediaPost/SocialMediaPost';
 
 class Dashboard extends Component {
   render() {
@@ -26,6 +27,16 @@ class Dashboard extends Component {
       <div id="kontejner">
               <h1 class="site-title" id="naslov">Naslovnica</h1>
               
+              <SocialMediaPost
+                    provider="INSTAGRAM"
+                    url="https://www.instagram.com/p/BioZ-HbFTGm/?hl=hr"
+                />
+
+                <SocialMediaPost
+                    provider="FACEBOOK"
+                    url="https://www.facebook.com/20531316728/posts/10154009990506729/"
+                />
+
               <div id="stiker1">
                 <div className="Sticker-body"> 
                   <p>     </p>
