@@ -19,7 +19,7 @@ class Register extends Component {
   };  
 
   handleClick(e) {
-     axios.post('http://localhost:8080/registration', {
+     axios.post('/registration', {
         username: this.state.username,
         password: this.state.password,
         firstName: this.state.firstname,

@@ -18,7 +18,7 @@ class Login extends Component {
 
 
   handleClick(e) {
-      axios.post('http://localhost:8080/login', {
+      axios.post('/login', {
         username: this.state.username,
         password: this.state.password
       })
