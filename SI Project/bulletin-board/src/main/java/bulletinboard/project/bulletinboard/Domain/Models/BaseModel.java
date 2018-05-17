@@ -4,15 +4,16 @@ import org.springframework.data.annotation.Id;
 import java.util.UUID;
 
 public class BaseModel {
-    @Id
-    private int id;
 
-    public int getId()
+    @Id
+    private UUID id;
+
+    public UUID getId()
     {
         return this.id;
     }
 
-    public void setId(int id)
+    public void setId(UUID id)
     {
         this.id = id;
     }

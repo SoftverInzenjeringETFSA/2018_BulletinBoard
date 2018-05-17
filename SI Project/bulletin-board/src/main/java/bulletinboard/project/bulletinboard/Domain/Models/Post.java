@@ -6,12 +6,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.annotation.Generated;
 import javax.persistence.GeneratedValue;
 import java.util.Date;
+import java.util.UUID;
 
 @Document
 public class Post extends BaseModel {
 
-
-    private int UserId;
+    //private UUID PostId;
+//    @Id
+//    private int UserId;
     private String Title;
     private String Description;
     private String Color;
@@ -42,13 +44,7 @@ public class Post extends BaseModel {
     }
 
     */
-    public int getUserId() {
-        return UserId;
-    }
 
-    public void setUserId(int userId) {
-        UserId = userId;
-    }
 
     public String getTitle() {
         return Title;
@@ -97,4 +93,12 @@ public class Post extends BaseModel {
     public void setDate(java.util.Date date) {
         Date = date;
     }
+
+//    public int getUserId() {
+//        return UserId;
+//    }
+//
+//    public void setUserId(int userId) {
+//        UserId = userId;
+//    }
 }

@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -41,21 +43,30 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public int createPost(Post post) {
+    public UUID createPost(Post post) {
+        post.setId(UUID.randomUUID());
         postRepository.insert(post);
         return post.getId();
     }
 
     @Override
-    public Post findById(String id) {
-        List<Post> post = postRepository.findAll();
-        if(!post.isEmpty())
-            return post.get(0);
-        return null;
+    public Post findById(UUID id) {
+//        List<Post> posts = postRepository.findAll();
+//        if(!posts.isEmpty())
+//        {
+//            posts.stream()
+//                    .filter(item -> item.getId().equals(id))
+//                    .collect(Collectors.toList());
+//            return posts.get(0);
+//        }
+//        return null;
+
+        List<Post> posts = postRepository.returnPostById(id);
+        return posts.get(0);
     }
 
     @Override
-    public boolean hidePost(String id) {
+    public boolean hidePost(UUID id) {
         Post post = this.findById(id);
         if(post != null)
         {
@@ -66,6 +77,7 @@ public class PostServiceImpl implements PostService {
             else {
                 post.setHidden(false);
             }
+            postRepository.save(post);
             return true;
         }
         return false;
@@ -73,7 +85,7 @@ public class PostServiceImpl implements PostService {
 
 
     @Override
-    public int createSocialMediaPost(SocialMediaPost post) {
+    public UUID createSocialMediaPost(SocialMediaPost post) {
         return socialMediaPostRepository.save(post).getId();
 
     }

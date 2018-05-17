@@ -5,15 +5,16 @@ import bulletinboard.project.bulletinboard.Domain.Models.Post;
 import bulletinboard.project.bulletinboard.Domain.Models.SocialMediaPost;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface PostService {
     //List<Post> getAllPosts();
     List<Post> getAllPostsWithDate();
-    int createPost(Post post);
-    Post findById(String id);
-    boolean hidePost(String id);
+    UUID createPost(Post post);
+    Post findById(UUID id);
+    boolean hidePost(UUID id);
 
-    int createSocialMediaPost(SocialMediaPost post);
+    UUID createSocialMediaPost(SocialMediaPost post);
     List<SocialMediaPost> getAllSocialMediaPosts();
 
     boolean addImage(Image image);

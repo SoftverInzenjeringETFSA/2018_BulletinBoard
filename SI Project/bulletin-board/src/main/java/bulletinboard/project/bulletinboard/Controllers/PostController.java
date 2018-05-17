@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/Post")
@@ -25,7 +26,7 @@ public class PostController {
 //    }
 
     @RequestMapping("/get")
-    public Post getPost(String id) {
+    public Post getPost(UUID id) {
         return postService.findById(id);
     }
 
@@ -37,7 +38,7 @@ public class PostController {
     }
 
     @RequestMapping("/add")
-    public int addPost(@RequestBody Post post) {
+    public UUID addPost(@RequestBody Post post) {
         return postService.createPost(post);
     }
 
@@ -59,22 +60,22 @@ public class PostController {
     }
 
     @RequestMapping("/getPostWithDate")
-    public Post getPostWithDate(String id) {
+    public Post getPostWithDate(UUID id) {
         return postService.findById(id);
     }
 
     @PostMapping("/addPostWithDate")
-    public int addPostWithDate(Post post) {
+    public UUID addPostWithDate(Post post) {
         return postService.createPost(post);
     }
 
-    @PostMapping("/hidePost")
-    public boolean hidePost(String id) {
+    @PostMapping("/hidePost/{id}")
+    public boolean hidePost(@PathVariable UUID id) {
         return postService.hidePost(id);
     }
 
     @PostMapping("/addSocialMediaPost")
-    public int addSocialMediaPost(String url, String provider) {
+    public UUID addSocialMediaPost(String url, String provider) {
         return postService.createSocialMediaPost(new SocialMediaPost(provider, url));
     }
 
