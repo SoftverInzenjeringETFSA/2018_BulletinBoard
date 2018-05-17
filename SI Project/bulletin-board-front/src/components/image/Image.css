@@ -1,0 +1,7 @@
+.App-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 300;
+  max-height: 300;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Post.css';
+import Image from '../image/Image';
 import axios from 'axios'
 
 class Post extends Component {
@@ -59,7 +60,7 @@ class Post extends Component {
 	
 	hidePost(){
 		var temp = this.fetchPost();//.then(response => {
-			if(this.state.IsHidden == true)
+			if(this.state.IsHidden === true)
 			{
 				this.setState({
 					IsHidden : false
@@ -93,10 +94,14 @@ class Post extends Component {
 	return (
 			<div className="section" >
 			<div>
-				{this.fetchPost().UserId} <br/>
-				{this.fetchPost().Title}  <br/>
-				{this.fetchPost().DateCreated}<br/>
-				{this.state.IsHidden.toString()}
+				<div className="title">
+					{this.fetchPost().Title}  <br/>
+				</div>
+				<div className="postBody">
+					{this.fetchPost().UserId} <br/>
+					{this.fetchPost().DateCreated}<br/>
+					{this.state.IsHidden.toString()}
+				</div>
 			</div>
 			<div></div>
 			<div></div>
@@ -105,6 +110,7 @@ class Post extends Component {
 					<button onClick={this.hidePost}>Hide!</button>
 				</div>
 			</div>
+			
 		);
 	}
 }

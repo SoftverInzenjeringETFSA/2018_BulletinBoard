@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Dashboard.css';
 import Post from '../post/Post';
+import Image from '../image/Image';
 
 class Dashboard extends Component {
   render() {
@@ -25,33 +26,37 @@ class Dashboard extends Component {
       <div id="kontejner">
               <h1 class="site-title" id="naslov">Naslovnica</h1>
               
-              <div id="stiker1"> 
+              <div id="stiker1">
+                <div className="Sticker-body"> 
                   <p>     </p>
                   <Post/>
-                  <div class="stiker_in">
-                      <p>Opis slike <i class="fa fa-ellipsis-h"></i></p>
-                  </div>
+                </div>
               </div>
 
               <div id="stiker2">
-                      <i class="fa fa-ellipsis-h"></i>
-                      <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                          Velit rerum odit quisquam. Ducimus dolores cupiditate cumque, 
-                          magnam quae ut reprehenderit perferendis commodi.</p>
-                  
+                <div className="Sticker-body"> 
+                    <i class="fa fa-ellipsis-h"></i>
+                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        Velit rerum odit quisquam. Ducimus dolores cupiditate cumque, 
+                        magnam quae ut reprehenderit perferendis commodi.</p>
+                </div>
               </div>
 
-              <div id="stiker3"> 
-                  <p>      </p>
-                  <div class="stiker_in">
-                      <p>Opis slike <i class="fa fa-ellipsis-h"></i></p>
-                  </div>
-              </div>
+              <div id="stiker3">
+                <div className="Sticker-body"> 
+                    <Image source="http://www.bioinfo.ba/ETF_logo.gif"/>
+                </div>
+                <div class="stiker_in">
+                    <p>ETF Logo<i class="fa fa-ellipsis-h"></i></p>
+                </div>
+            </div>
 
               <div id="stiker4">
-                  <p>      </p>
+                <div className="Sticker-body"> 
+                    <Image source="https://i.imgur.com/6XaGd4h.png"/>
+                </div>
                   <div class="stiker_in">
-                      <p>Opis slike <i class="fa fa-ellipsis-h"></i></p>
+                      <p>ReactJS <i class="fa fa-ellipsis-h"></i></p>
                   </div>
               </div>
 
