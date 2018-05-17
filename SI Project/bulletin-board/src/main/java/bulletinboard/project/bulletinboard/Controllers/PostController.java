@@ -21,11 +21,6 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-//    @RequestMapping("/getAllPosts")
-//    public List<Post> getAllPosts() {
-//        return postService.getAllPosts();
-//    }
-
     @RequestMapping("/get")
     public Post getPost(String id) {
         return postService.findById(id);
