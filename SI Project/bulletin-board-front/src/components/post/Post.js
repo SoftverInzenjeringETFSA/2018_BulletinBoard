@@ -10,29 +10,21 @@ class Post extends Component {
 	constructor(props) {
         super(props);
         this.state = {
+				PostId: String,
 				UserId: Number,
 				Title: String,
 				Description: String,
 				Color: String,
 				DateCreated: Date,
-				IsHidden: true,
+				IsHidden: Boolean,
 				Date: Date
 		};
 		this.fetchPost = this.fetchPost.bind(this);
 		this.hidePost = this.hidePost.bind(this);
+		this.ping = this.ping.bind(this);
 	}
 
-	ping() {
-		// console.log("Ping was clicked");
-		// alert("Hello! I am an alert box!!");
-		axios.get("http://localhost:8080/Post/getAll").then(res => {
-				alert("Received Successful response from server!");
-				console.log(res.data); // array of post
-			}, err => {
-		alert("Server rejected response with: " + err);
-
-		});
-	}
+	
 
 	//Future service to get post...
 	fetchPost() {
@@ -45,22 +37,31 @@ class Post extends Component {
 			// 	IsHidden: true,
 			// 	Date: Date
 			// };
+
+			// *-----------------------------------------Note-------------------------------------------------------------------------------------------*
+			// The following code is a temporary placeholder to showcase show hide functionality 
+			// PostId is a random UUID which I used to test on my local machine
+			// Service for getting posts will be set in a parent component
+			// This code serves only to show that it is possible to hit backend /hidePost/{id} method and will be removed from here
+			// *------------------------------------------------------------------------------------------------------------------------------------*
 			const PostTemp = {
-				UserId: 1,
+				 PostId: '100ae528-088c-4977-a405-f6f431bbef3f',
 				 Title: "VeryCohlTitle",
 				 Description: "String",
 				 Color: "String",
 				 DateCreated: Date.now().toString(),
-				 IsHidden: "Boolean",
+				 IsHidden: true,
 				 Date: "Date"
 			};
 			return PostTemp;
 	}
 
-
+	componentDidMount() {
+		var temp = this.fetchPost();
+		//this.state.PostId = temp.PostId; ....
+	  }
 	
 	hidePost(){
-		var temp = this.fetchPost();//.then(response => {
 			if(this.state.IsHidden === true)
 			{
 				this.setState({
@@ -73,21 +74,35 @@ class Post extends Component {
 					IsHidden : true
 				});
 			}
-			
-			// this.setState((prevState, props) => ({
-			// 	IsHidden : prevState.IsHidden
-			//   }));
-		//});
 	}
 
-	
-		// if(this.state.IsHidden == false)
-		// {
-		// 	this.setState({
-		// 		IsHidden: true
-		// 	  });
-		// }
-	
+	// *-----------------------------------------Note-------------------------------------------------------------------------------------------*
+	// The following code is a temporary placeholder to showcase show hide functionality 
+	// PostId is a random UUID which I used to test on my local machine
+	// Service for getting posts will be set in a parent component
+	// This code serves only to show that it is possible to hit backend /hidePost/{id} method and will be removed from here
+	// *------------------------------------------------------------------------------------------------------------------------------------*
+
+	ping() {
+		// console.log("Ping was clicked");
+		// alert("Hello! I am an alert box!!");
+		const path = '/Post/hidePost/100ae528-088c-4977-a405-f6f431bbef3f';
+		axios.post('http://localhost:8080/Post/hidePost/100ae528-088c-4977-a405-f6f431bbef3f', {
+		  })
+		  .then(function (response) {
+			console.log(response);
+		  })
+		  .catch(function (error) {
+			console.log(error);
+		  });
+
+		// axios.get("http://localhost:8080/Post/getall").then(res => {
+		// 		alert("Received Successful response from server!");
+		// 		console.log(res.data); // array of post
+		// 	}, err => {
+		// alert("Server rejected response with: " + err);
+		// });
+	}
 	  
 	render() {
 		
