@@ -7,15 +7,13 @@ import bulletinboard.project.bulletinboard.Domain.Models.SocialMediaPost;
 import bulletinboard.project.bulletinboard.service.PostService;
 import jdk.nashorn.api.scripting.JSObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/Post")
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 public class PostController {
 
     @Autowired
@@ -34,6 +32,7 @@ public class PostController {
     @RequestMapping("/getAll")
     public List<Post> getAll()
     {
+        System.out.println("Get all");
         return postService.getAll();
     }
 
