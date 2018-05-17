@@ -25,12 +25,13 @@ class Post extends Component {
 	ping() {
 		// console.log("Ping was clicked");
 		// alert("Hello! I am an alert box!!");
-		
-		axios.get("http://localhost:8080/getAllPostsWithDate").then(res => {
-				alert("Received Successful response from server!"+res);
+		axios.get("http://localhost:8080/Post/getAll").then(res => {
+				alert("Received Successful response from server!");
+				console.log(res.data); // array of post
 			}, err => {
 		alert("Server rejected response with: " + err);
-  });
+
+		});
 	}
 
 	//Future service to get post...
