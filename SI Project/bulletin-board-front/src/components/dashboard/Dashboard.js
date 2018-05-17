@@ -1,12 +1,37 @@
 import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import './Dashboard.css';
 import Post from '../post/Post';
 import Image from '../image/Image';
 import SocialMediaPost from '../socialMediaPost/SocialMediaPost';
+import axios from 'axios';
+
 
 class Dashboard extends Component {
+
+
+  state = {
+        toLogin: false,
+        unauthorized: false
+  };
+  handleClick(e) {
+     axios.post('/logmeout', {})
+      .then(response => this.setState({toLogin: true}))
+      .catch( error => console.log(error));
+  }
+  componentWillMount() {
+      axios.get('/welcome', {})
+      .then(response => console.log(response))
+      .catch( error => this.setState({unauthorized: true}));
+  }
+
   render() {
-    
+    if (this.state.toLogin === true) {
+      return <Redirect to='/login' />
+    }
+    if (this.state.unauthorized === true) {
+      return <Redirect to='/login' />
+    }
     return (
       <body background="pinboard.jpg">
       <div id="glavniKontejner">
@@ -18,11 +43,11 @@ class Dashboard extends Component {
                 <i id="user-icon" class="fa fa-user"></i>
             <i id="plus-icon"class="fa fa-plus"></i>
                 <div class="bottom-link">
-                    <a  id="logout">Log out</a>
+                    <a onClick={(e) => this.handleClick(e)} id="logout">Log out</a>
                 </div>
                     
             </div>
-        </div >
+        </div>
 
       <div id="kontejner">
               <h1 class="site-title" id="naslov">Naslovnica</h1>
