@@ -3,6 +3,7 @@ package bulletinboard.project.bulletinboard.Domain.Models;
 import java.util.UUID;
 import javax.persistence.*;
 import java.util.Set;
+import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 
 public class User extends BaseModel{
@@ -15,6 +16,7 @@ public class User extends BaseModel{
     private String email;
     private String image;
     private Set<String> roles;
+    LocalDateTime created;
 
 
     public String getFirstName() {
@@ -70,5 +72,13 @@ public class User extends BaseModel{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public LocalDateTime getCreated(){
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created){
+        this.created = created;
     }
 }

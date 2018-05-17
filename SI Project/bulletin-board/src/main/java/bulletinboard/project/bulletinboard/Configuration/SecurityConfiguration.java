@@ -16,6 +16,7 @@ import bulletinboard.project.bulletinboard.restAuth.RESTAuthenticationSuccessHan
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.cors.CorsConfiguration;
 
 
 @Configuration
@@ -43,7 +44,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
        return super.authenticationManagerBean();
     }
 
-    @Bean
+    /*@Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurerAdapter() {
         @Override
@@ -52,7 +53,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .allowedHeaders("*");
         }
         };
-    }
+    }*/
 
 
     @Override
@@ -61,13 +62,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // rute koje zahtjevaju authenticated user-a definirajte ovdje npr. ...antMatchers("/welcome","/users","/posts")....
         http.authorizeRequests().antMatchers("/welcome").authenticated();
         http.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint);
-        http.logout().logoutSuccessUrl("/");
         http.csrf().disable();
+        http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
     }
-
 }
