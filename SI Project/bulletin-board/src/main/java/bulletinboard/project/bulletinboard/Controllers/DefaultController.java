@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.List;
@@ -25,6 +26,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
+import java.time.LocalDateTime;
 
 @RestController
 public class DefaultController {
@@ -40,14 +42,22 @@ public class DefaultController {
     private static final Logger logger = LoggerFactory.getLogger(DefaultController.class);
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void registration(@RequestBody User user) {
+    public void registration(@RequestBody User userData) {
+        User user = new User();
+        user.setCreated(LocalDateTime.now());
+        user.setId(userRepository.findTopByOrderByCreatedDesc().getId() + 1);
+        user.setPassword(userData.getPassword());
+        user.setUsername(userData.getUsername());
+        user.setFirstName(userData.getFirstName());
+        user.setLastName(userData.getLastName());
+        user.setEmail(userData.getEmail());
         userService.save(user);
-        securityService.autologin(user.getUsername(), user.getPassword());
+        securityService.autologin(user.getUsername(), userData.getPassword());
     }
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
-        return "welcome";
+        return "Welcome, you are logged in!";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -57,15 +67,24 @@ public class DefaultController {
        if( user !=  null && encoder.matches(userData.getPassword(),user.getPassword()) ) {
             securityService.autologin(user.getUsername(),userData.getPassword());
        }
+       logger.error(String.format("Auto login %s successfully!", SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
 
-       return userData;
+       return user;
     } 
 
-    @RequestMapping(value="/logout", method = RequestMethod.POST)
+    @RequestMapping(value="/logmeout", method = RequestMethod.POST)
     public void logoutPage (HttpServletRequest request, HttpServletResponse response) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();      
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        logger.error(String.format("Auto login %s successfully!", SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         if (auth != null){
         new SecurityContextLogoutHandler().logout(request, response, auth);
         }
     }  
+
+    @RequestMapping(value="/loggeduser", method = RequestMethod.GET)
+    public Object loggeduser (HttpServletRequest request, HttpServletResponse response) {
+        return SecurityContextHolder.getContext().getAuthentication().getPrincipal();      
+        
+    } 
+    
 }
