@@ -1,0 +1,9 @@
+.rows:nth-child(odd){background:#fff;}
+.rows:nth-child(even){background:#ddd;}
+#table {margin: 50px auto; border: 1px solid lightgrey;  border-collapse: collapse;}
+#filter>td>input{ width: 100%; text-align: center;}
+td, th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+}

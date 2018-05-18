@@ -30,7 +30,7 @@ class Register extends Component {
       .catch( error => console.log(error));
   }
   handleInput(e){
-      if (!Handler[e.target.name](e.target.value)){
+      if (!Handler[e.target.name](e.target.value,this.state.password)){
         this.state.errors.record({ [e.target.name]: ErrorMessages[e.target.name]});
         this.setState({
           errors: this.state.errors,

@@ -3,6 +3,10 @@ package bulletinboard.project.bulletinboard.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import bulletinboard.project.bulletinboard.Domain.Models.User;
+import bulletinboard.project.bulletinboard.Repositories.UserRepository;
+import bulletinboard.project.bulletinboard.service.UserService;
+import bulletinboard.project.bulletinboard.service.SecurityService;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,6 +21,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.cors.CorsConfiguration;
+import java.util.HashSet;
+import java.util.Arrays;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 
 @Configuration
@@ -32,6 +40,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
+
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -69,5 +84,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+        if (userRepository.findByRole("admin") == null){
+            User user = new User();
+            user.setCreated(LocalDateTime.now());
+            user.setId(UUID.randomUUID());
+            user.setPassword(bCryptPasswordEncoder().encode("Admin123"));
+            user.setUsername("Admin");
+            user.setRole("admin");
+            userRepository.save(user);
+        }
     }
 }

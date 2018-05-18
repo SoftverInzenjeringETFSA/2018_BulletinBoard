@@ -13,7 +13,8 @@ class Login extends Component {
         username: "",
         password: "",
         errors: new Errors(),
-        toDashboard: false
+        toDashboard: false,
+        toAdminboard: false
   };
 
 
@@ -24,7 +25,7 @@ class Login extends Component {
       })
       .then(response => { 
                              if(response.data) 
-                                this.setState({toDashboard: true});
+                                response.data.role === "admin" ? this.setState({toAdminboard: true}) : this.setState({toDashboard: true});
                               else{
                                   alert('Bad credentials!')
                               }
@@ -54,6 +55,9 @@ class Login extends Component {
   render() {
     if (this.state.toDashboard === true) {
       return <Redirect to='/dashboard' />
+    }
+    if (this.state.toAdminboard === true) {
+      return <Redirect to='/adminboard' />
     }
     return (
         <div className="App-login">

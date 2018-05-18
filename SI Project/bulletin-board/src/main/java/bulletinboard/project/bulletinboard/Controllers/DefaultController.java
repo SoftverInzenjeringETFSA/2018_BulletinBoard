@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @RestController
 public class DefaultController {
@@ -45,7 +46,7 @@ public class DefaultController {
     public void registration(@RequestBody User userData) {
         User user = new User();
         user.setCreated(LocalDateTime.now());
-        user.setId(userRepository.findTopByOrderByCreatedDesc().getId() + 1);
+        user.setId(UUID.randomUUID());
         user.setPassword(userData.getPassword());
         user.setUsername(userData.getUsername());
         user.setFirstName(userData.getFirstName());
@@ -86,5 +87,13 @@ public class DefaultController {
         return SecurityContextHolder.getContext().getAuthentication().getPrincipal();      
         
     } 
+
+    @RequestMapping(value="/getAllUsers", method = RequestMethod.GET)
+    public List<User> getAllUsers () {
+         return userService.getAllUsers();     
+        
+    } 
+
+    
     
 }

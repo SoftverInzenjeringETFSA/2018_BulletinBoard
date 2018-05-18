@@ -15,7 +15,7 @@ public class User extends BaseModel{
     private String password;
     private String email;
     private String image;
-    private Set<String> roles;
+    private String role;
     LocalDateTime created;
 
 
@@ -59,12 +59,12 @@ public class User extends BaseModel{
         this.image = image;
     }
 
-    public Set<String> getRoles() {
-        return roles;
+    public String getRole() {
+        return role;
     }
 
-    public void setRoles(Set<String> roles) {
-        this.roles = roles;
+    public void setRole(String role) {
+        this.role = role;
     }
     public String getEmail() {
         return email;
