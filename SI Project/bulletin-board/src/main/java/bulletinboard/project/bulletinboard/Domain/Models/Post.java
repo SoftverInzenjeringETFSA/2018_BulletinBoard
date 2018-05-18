@@ -1,6 +1,7 @@
 package bulletinboard.project.bulletinboard.Domain.Models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Generated;
@@ -8,42 +9,14 @@ import javax.persistence.GeneratedValue;
 import java.util.Date;
 import java.util.UUID;
 
-@Document
-public class Post extends BaseModel {
+@Document(collection = "posts")
+@TypeAlias("regularPost")
+public class Post extends BasePost {
 
-    //private UUID PostId;
-//    @Id
-//    private int UserId;
     private String Title;
     private String Description;
     private String Color;
-    private Date DateCreated;
-    private boolean IsHidden;
     private Date Date;
-
-    /*
-    public Post(){}
-
-    public Post(int userID, String title, String desc, String color, Date dateCreated, boolean isHidden) {
-        this.UserId=userID;
-        this.Title=title;
-        this.Description=desc;
-        this.Color=color;
-        this.DateCreated=dateCreated;
-        this.IsHidden=isHidden;
-    }
-
-    public Post(int userID, String title, String desc, String color, Date dateCreated, boolean isHidden, Date date) {
-        this.UserId=userID;
-        this.Title=title;
-        this.Description=desc;
-        this.Color=color;
-        this.DateCreated=dateCreated;
-        this.IsHidden=isHidden;
-        this.Date=date;
-    }
-
-    */
 
 
     public String getTitle() {
@@ -70,22 +43,6 @@ public class Post extends BaseModel {
         Color = color;
     }
 
-    public java.util.Date getDateCreated() {
-        return DateCreated;
-    }
-
-    public void setDateCreated(java.util.Date dateCreated) {
-        DateCreated = dateCreated;
-    }
-
-    public boolean isHidden() {
-        return IsHidden;
-    }
-
-    public void setHidden(boolean hidden) {
-        IsHidden = hidden;
-    }
-
     public java.util.Date getDate() {
         return Date;
     }
@@ -94,11 +51,4 @@ public class Post extends BaseModel {
         Date = date;
     }
 
-//    public int getUserId() {
-//        return UserId;
-//    }
-//
-//    public void setUserId(int userId) {
-//        UserId = userId;
-//    }
 }

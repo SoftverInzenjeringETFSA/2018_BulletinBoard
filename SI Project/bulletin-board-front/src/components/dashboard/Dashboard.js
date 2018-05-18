@@ -26,12 +26,13 @@ class Dashboard extends Component {
   }
 
   render() {
+      /*
     if (this.state.toLogin === true) {
       return <Redirect to='/login' />
     }
     if (this.state.unauthorized === true) {
       return <Redirect to='/login' />
-    }
+    }*/
     return (
       <body background="pinboard.jpg">
       <div id="glavniKontejner">

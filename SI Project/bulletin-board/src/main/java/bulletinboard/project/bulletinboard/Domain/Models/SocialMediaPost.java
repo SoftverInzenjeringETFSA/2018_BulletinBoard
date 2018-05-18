@@ -1,17 +1,15 @@
 package bulletinboard.project.bulletinboard.Domain.Models;
 
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document()
-public class SocialMediaPost extends BaseModel {
+import java.util.UUID;
+
+@Document(collection = "posts")
+@TypeAlias("socialMediaPost")
+public class SocialMediaPost extends BasePost {
     private String provider;
     private String url;
-    private String embedHtml;
-
-    public SocialMediaPost(String provider, String url) {
-        this.provider = provider;
-        this.url = url;
-    }
 
     public String getProvider() {
         return provider;
@@ -29,11 +27,4 @@ public class SocialMediaPost extends BaseModel {
         this.url = url;
     }
 
-    public String getEmbedHtml() {
-        return embedHtml;
-    }
-
-    public void setEmbedHtml(String embedHtml) {
-        this.embedHtml = embedHtml;
-    }
 }

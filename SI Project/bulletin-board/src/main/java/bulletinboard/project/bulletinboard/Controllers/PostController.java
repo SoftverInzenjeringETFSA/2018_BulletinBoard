@@ -1,6 +1,7 @@
 package bulletinboard.project.bulletinboard.Controllers;
 
 
+import bulletinboard.project.bulletinboard.Domain.Models.BasePost;
 import bulletinboard.project.bulletinboard.Domain.Models.Image;
 import bulletinboard.project.bulletinboard.Domain.Models.Post;
 import bulletinboard.project.bulletinboard.Domain.Models.SocialMediaPost;
@@ -21,12 +22,12 @@ public class PostController {
     private PostService postService;
 
     @RequestMapping("/get")
-    public Post getPost(UUID id) {
-        return postService.findById(id);
+    public BasePost getPost(String id) {
+        return postService.findById(UUID.fromString(id));
     }
 
     @RequestMapping("/getAll")
-    public List<Post> getAll()
+    public List<BasePost> getAll()
     {
         System.out.println("Get all");
         return postService.getAll();
@@ -56,7 +57,7 @@ public class PostController {
 
     @RequestMapping("/getPostWithDate")
     public Post getPostWithDate(UUID id) {
-        return postService.findById(id);
+        return (Post) postService.findById(id);
     }
 
     @PostMapping("/addPostWithDate")
@@ -70,8 +71,8 @@ public class PostController {
     }
 
     @PostMapping("/addSocialMediaPost")
-    public UUID addSocialMediaPost(String url, String provider) {
-        return postService.createSocialMediaPost(new SocialMediaPost(provider, url));
+    public UUID addSocialMediaPost(@RequestBody SocialMediaPost post) {
+        return postService.createSocialMediaPost(post);
     }
 
     @RequestMapping("/getSocialMediaPosts")
