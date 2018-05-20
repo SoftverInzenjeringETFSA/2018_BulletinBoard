@@ -94,6 +94,12 @@ public class DefaultController {
         
     } 
 
+    @RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
+    public List<User> deleteUser(@RequestBody User userData) {
+        userService.deleteUser(userService.findByUsername(userData.getUsername()));
+        return userService.getAllUsers(); 
+    } 
+
     
     
 }

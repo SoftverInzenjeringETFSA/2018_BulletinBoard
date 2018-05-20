@@ -7,3 +7,12 @@ td, th {
     text-align: center;
     padding: 8px;
 }
+.csv-link, .delete-link{
+  background-color:  #F64139;
+  font-size: 14;
+  font-weight: 500;
+  padding: 0px 48px;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+}

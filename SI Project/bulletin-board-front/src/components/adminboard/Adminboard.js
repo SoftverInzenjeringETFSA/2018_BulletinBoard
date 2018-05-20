@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect} from 'react-router-dom';
+import { CSVLink } from 'react-csv';
 import './Adminboard.css';
 import axios from 'axios';
 
@@ -30,6 +31,11 @@ class Adminboard extends Component {
       this.setState({filteredUsers: this.state.users.filter(user => Array.from(Object.keys(this.state.filters)).every(
                                                         f => ~user[f].toLowerCase().indexOf(this.state.filters[f].toLowerCase())
                                                         ))});
+  }
+  deleteUser(username){
+    axios.post('/deleteUser', {username: username})
+      .then(response => this.setState({users: response.data.filter(el => el.role != "admin"), filteredUsers: response.data.filter(el => el.role != "admin")}))
+      .catch( error => console.log(error));
   }
   componentWillMount() {
     axios.get('/welcome', {})
@@ -75,7 +81,7 @@ class Adminboard extends Component {
                                                   <td>{user.firstName}</td>
                                                   <td>{user.lastName}</td>
                                                   <td>{user.email}</td>
-                                                  <td><a onClick={() => alert('bla bla')}>Click</a></td>
+                                                  <td><a className="delete-link" onClick={() => this.deleteUser(user.username)}>Delete</a></td>
                                               </tr>
                                     );
     return (
@@ -87,6 +93,10 @@ class Adminboard extends Component {
             {rows} 
           </tbody>
         </table>
+       <span>
+            Generisi <CSVLink data={this.state.filteredUsers.map(user => { let {id, password, ...rest} = user; return rest;})} className="csv-link" filename="bulletin_users.csv">
+            CSV ⬇</CSVLink> izvjestaj
+        </span>
         <div className="bottom-link">
             <a onClick={(e) => this.handleClick(e)} id="logout">Log out</a>
         </div>
