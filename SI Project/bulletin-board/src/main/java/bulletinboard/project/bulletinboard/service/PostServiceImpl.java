@@ -96,4 +96,9 @@ public class PostServiceImpl implements PostService {
     {
         return postRepository.findAll();
     }
+
+    public List<BasePost> getByUser(UUID id)
+    {
+        return postRepository.getByUser(id);
+    }
 }

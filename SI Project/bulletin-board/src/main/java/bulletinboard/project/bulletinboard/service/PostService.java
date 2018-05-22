@@ -21,4 +21,5 @@ public interface PostService {
     boolean addImage(Image image);
     List<Image> getImages();
     List<BasePost> getAll();
+    List<BasePost> getByUser(UUID id);
 }

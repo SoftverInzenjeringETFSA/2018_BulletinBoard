@@ -18,4 +18,7 @@ public interface PostRepository extends MongoRepository<BasePost, String> {
 
     @Query("{'_class':'socialMediaPost'}")
     List<SocialMediaPost> getAllSocialMediaPosts();
+
+    @Query("{ 'UserId' : ?0 }")
+    List<BasePost> getByUser(UUID UserId);
 }

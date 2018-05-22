@@ -7,31 +7,31 @@ import java.util.UUID;
 
 @Document(collection = "posts")
 public class BasePost extends BaseModel {
-    private UUID UserId;
-    private Date DateCreated;
-    private boolean IsHidden;
+    private UUID userId;
+    private Date dateCreated;
+    private boolean isHidden;
 
     public UUID getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(UUID userId) {
-        UserId = userId;
+        this.userId = userId;
     }
 
     public Date getDateCreated() {
-        return DateCreated;
+        return this.dateCreated;
     }
 
     public void setDateCreated(Date dateCreated) {
-        DateCreated = dateCreated;
+        this.dateCreated = dateCreated;
     }
 
     public boolean isHidden() {
-        return IsHidden;
+        return this.isHidden;
     }
 
     public void setHidden(boolean hidden) {
-        IsHidden = hidden;
+        this.isHidden = hidden;
     }
 }

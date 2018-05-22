@@ -29,8 +29,13 @@ public class PostController {
     @RequestMapping("/getAll")
     public List<BasePost> getAll()
     {
-        System.out.println("Get all");
         return postService.getAll();
+    }
+
+    @RequestMapping("/getByUser")
+    public List<BasePost> getByUser(@RequestHeader(value="UUID") UUID id)
+    {
+        return postService.getByUser(id);
     }
 
     @RequestMapping("/add")

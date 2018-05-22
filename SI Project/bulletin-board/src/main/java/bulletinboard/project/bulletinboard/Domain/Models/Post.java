@@ -13,42 +13,42 @@ import java.util.UUID;
 @TypeAlias("regularPost")
 public class Post extends BasePost {
 
-    private String Title;
-    private String Description;
-    private String Color;
-    private Date Date;
+    private String title;
+    private String description;
+    private String color;
+    private Date date;
 
 
     public String getTitle() {
-        return Title;
+        return this.title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getDescription() {
-        return Description;
+        return this.description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getColor() {
-        return Color;
+        return this.color;
     }
 
     public void setColor(String color) {
-        Color = color;
+        this.color = color;
     }
 
     public java.util.Date getDate() {
-        return Date;
+        return this.date;
     }
 
     public void setDate(java.util.Date date) {
-        Date = date;
+        this.date = date;
     }
 
 }

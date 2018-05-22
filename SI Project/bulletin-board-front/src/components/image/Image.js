@@ -54,7 +54,7 @@ class Image extends React.Component{
     }
    
     rotate(){
-      let newRotation = this.state.rotation + 90;
+      let newRotation = this.state.rotation + 15;
       if(newRotation >= 360){
         newRotation =- 360;
       }
