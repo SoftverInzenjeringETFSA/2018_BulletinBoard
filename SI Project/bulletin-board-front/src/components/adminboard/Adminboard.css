@@ -7,7 +7,7 @@ td, th {
     text-align: center;
     padding: 8px;
 }
-.csv-link, .delete-link{
+.csv-link, .delete-link, .update-link, .ban-link{
   background-color:  #F64139;
   font-size: 14;
   font-weight: 500;

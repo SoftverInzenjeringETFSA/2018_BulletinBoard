@@ -60,6 +60,9 @@ class Adminboard extends Component {
                     <th>User Last Name</th>
                     <th>User Email</th>
                     <th>Delete User</th>
+                    <th>Ban User</th>
+                    <th>Update User</th>
+
                   </tr>;
     let filter = <tr id="filter">
                     <td>
@@ -75,6 +78,9 @@ class Adminboard extends Component {
                       <input type="text" name="email" placeholder="filter email" onChange = { e => this.handleInput(e)}/>
                     </td>
                     <td></td>
+                    <td></td>
+                    <td></td>
+                    
                 </tr>;
     let rows = this.state.filteredUsers.map(user =>  <tr key={user.id} className="rows">
                                                   <td>{user.username}</td>
@@ -82,6 +88,8 @@ class Adminboard extends Component {
                                                   <td>{user.lastName}</td>
                                                   <td>{user.email}</td>
                                                   <td><a className="delete-link" onClick={() => this.deleteUser(user.username)}>Delete</a></td>
+                                                  <td><a className="ban-link" >Ban</a></td>
+                                                  <td><Link className="update-link" to="/update">Update</Link></td>
                                               </tr>
                                     );
     return (
