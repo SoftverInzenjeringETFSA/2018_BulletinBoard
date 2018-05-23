@@ -9,11 +9,19 @@ import axios from 'axios';
 
 class Dashboard extends Component {
 
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            toLogin: false,
+            unauthorized: false,
+            userId: String,
+            posts: []
+        }
 
-  state = {
-        toLogin: false,
-        unauthorized: false
-  };
+        this.getPosts = this.getPosts.bind(this);
+    }
+
   handleClick(e) {
      axios.post('/logmeout', {})
       .then(response => this.setState({toLogin: true}))
@@ -25,14 +33,32 @@ class Dashboard extends Component {
       .catch( error => this.setState({unauthorized: true}));
   }
 
+  getPosts()
+  {
+    axios.get('http://localhost:8080/Post/getAll', {
+    })
+    .then(function (response) {
+      console.log(response);
+      this.state.posts = response.data;
+      console.log(this.state.posts);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   render() {
     
     if (this.state.toLogin === true) {
       return <Redirect to='/login' />
     }
+
     if (this.state.unauthorized === true) {
       return <Redirect to='/login' />
     }
+
+    this.getPosts();
+
     return (
       <body background="pinboard.jpg">
       <div id="glavniKontejner">

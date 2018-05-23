@@ -10,14 +10,17 @@ class Post extends Component {
 	constructor(props) {
         super(props);
         this.state = {
-				PostId: String,
-				UserId: Number,
-				Title: String,
-				Description: String,
-				Color: String,
-				DateCreated: Date,
-				IsHidden: Boolean,
-				Date: Date
+			PostId: String,
+			UserId: Number,
+			Title: String,
+			Description: String,
+			Color: String,
+			DateCreated: Date,
+			IsHidden: Boolean,
+			Date: Date,
+			style:{
+				display: 'block'
+			}
 		};
 		this.fetchPost = this.fetchPost.bind(this);
 		this.hidePost = this.hidePost.bind(this);
@@ -71,9 +74,11 @@ class Post extends Component {
 			else
 			{
 				this.setState({
-					IsHidden : true
+					IsHidden : true,
+					style: {display:'none'}
 				});
 			}
+			
 	}
 
 	// *-----------------------------------------Note-------------------------------------------------------------------------------------------*
@@ -108,7 +113,7 @@ class Post extends Component {
 		
 		
 	return (
-			<div className="section" >
+			<div className="section" style={this.state.style} >
 			<div>
 				<div className="title">
 					{this.fetchPost().Title}  <br/>
