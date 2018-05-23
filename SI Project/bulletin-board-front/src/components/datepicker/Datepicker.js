@@ -1,4 +1,4 @@
-import './Datepicker.css';
+/*import './Datepicker.css';
 "use strict";
 
 (function (global, factory) {
@@ -360,4 +360,4 @@ import './Datepicker.css';
     });
 
     return DatePicker;
-}));
+}));*/

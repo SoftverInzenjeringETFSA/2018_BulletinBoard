@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Post.css';
 import Image from '../image/Image';
-import axios from 'axios'
+import axios from 'axios';
+//import DatePicker from 'react-datepicker';
+//import moment from 'moment';
+//import 'react-datepicker/dist/react-datepicker.css';
 
 class Post extends Component {
 	
@@ -76,6 +79,10 @@ class Post extends Component {
 			}
 	}
 
+	//pickDate(){<DatePicker/>} //povezati funkciju na button
+	//Ne prolazi instalacija datePickera
+
+
 	// *-----------------------------------------Note-------------------------------------------------------------------------------------------*
 	// The following code is a temporary placeholder to showcase show hide functionality 
 	// PostId is a random UUID which I used to test on my local machine
@@ -124,6 +131,7 @@ class Post extends Component {
 				<div>
 					<button onClick={this.ping}>Ping!</button>
 					<button onClick={this.hidePost}>Hide!</button>
+					<button>Datum</button>
 				</div>
 			</div>
 			
