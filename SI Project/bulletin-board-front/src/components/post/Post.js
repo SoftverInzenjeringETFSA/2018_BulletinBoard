@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Post.css';
 import Image from '../image/Image';
-import axios from 'axios'
+import axios from 'axios';
+//import DatePicker from 'react-datepicker';
+//import moment from 'moment';
+//import 'react-datepicker/dist/react-datepicker.css';
 
 class Post extends Component {
-	
-	
 	constructor(props) {
         super(props);
         this.state = {
@@ -27,36 +28,36 @@ class Post extends Component {
 		this.ping = this.ping.bind(this);
 	}
 
-	
+	createPost() {}
 
 	//Future service to get post...
 	fetchPost() {
-			// Post = {
-			// 	UserId: Number,
-			// 	Title: String,
-			// 	Description: String,
-			// 	Color: String,
-			// 	DateCreated: Date,
-			// 	IsHidden: true,
-			// 	Date: Date
-			// };
+		// Post = {
+		// 	UserId: Number,
+		// 	Title: String,
+		// 	Description: String,
+		// 	Color: String,
+		// 	DateCreated: Date,
+		// 	IsHidden: true,
+		// 	Date: Date
+		// };
 
-			// *-----------------------------------------Note-------------------------------------------------------------------------------------------*
-			// The following code is a temporary placeholder to showcase show hide functionality 
-			// PostId is a random UUID which I used to test on my local machine
-			// Service for getting posts will be set in a parent component
-			// This code serves only to show that it is possible to hit backend /hidePost/{id} method and will be removed from here
-			// *------------------------------------------------------------------------------------------------------------------------------------*
-			const PostTemp = {
-				 PostId: '100ae528-088c-4977-a405-f6f431bbef3f',
-				 Title: "VeryCohlTitle",
-				 Description: "String",
-				 Color: "String",
-				 DateCreated: Date.now().toString(),
-				 IsHidden: true,
-				 Date: "Date"
-			};
-			return PostTemp;
+		// *-----------------------------------------Note-------------------------------------------------------------------------------------------*
+		// The following code is a temporary placeholder to showcase show hide functionality
+		// PostId is a random UUID which I used to test on my local machine
+		// Service for getting posts will be set in a parent component
+		// This code serves only to show that it is possible to hit backend /hidePost/{id} method and will be removed from here
+		// *------------------------------------------------------------------------------------------------------------------------------------*
+		const PostTemp = {
+			PostId: '100ae528-088c-4977-a405-f6f431bbef3f',
+			Title: 'VeryCohlTitle',
+			Description: 'String',
+			Color: 'String',
+			DateCreated: Date.now().toString(),
+			IsHidden: true,
+			Date: 'Date'
+		};
+		return PostTemp;
 	}
 
 	componentDidMount() {
@@ -81,8 +82,11 @@ class Post extends Component {
 			
 	}
 
+	//pickDate(){<DatePicker/>} //povezati funkciju na button
+	//Ne prolazi instalacija datePickera
+
 	// *-----------------------------------------Note-------------------------------------------------------------------------------------------*
-	// The following code is a temporary placeholder to showcase show hide functionality 
+	// The following code is a temporary placeholder to showcase show hide functionality
 	// PostId is a random UUID which I used to test on my local machine
 	// Service for getting posts will be set in a parent component
 	// This code serves only to show that it is possible to hit backend /hidePost/{id} method and will be removed from here
@@ -92,14 +96,17 @@ class Post extends Component {
 		// console.log("Ping was clicked");
 		// alert("Hello! I am an alert box!!");
 		const path = '/Post/hidePost/100ae528-088c-4977-a405-f6f431bbef3f';
-		axios.post('http://localhost:8080/Post/hidePost/100ae528-088c-4977-a405-f6f431bbef3f', {
-		  })
-		  .then(function (response) {
-			console.log(response);
-		  })
-		  .catch(function (error) {
-			console.log(error);
-		  });
+		axios
+			.post(
+				'http://localhost:8080/Post/hidePost/100ae528-088c-4977-a405-f6f431bbef3f',
+				{}
+			)
+			.then(function(response) {
+				console.log(response);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
 
 		// axios.get("http://localhost:8080/Post/getall").then(res => {
 		// 		alert("Received Successful response from server!");
@@ -108,7 +115,7 @@ class Post extends Component {
 		// alert("Server rejected response with: " + err);
 		// });
 	}
-	  
+
 	render() {
 		
 		
@@ -123,15 +130,15 @@ class Post extends Component {
 					{this.fetchPost().DateCreated}<br/>
 					{this.state.IsHidden.toString()}
 				</div>
-			</div>
-			<div></div>
-			<div></div>
+				<div />
+				<div />
 				<div>
 					<button onClick={this.ping}>Ping!</button>
 					<button onClick={this.hidePost}>Hide!</button>
+					<button>Datum</button>
 				</div>
 			</div>
-			
+			</div>
 		);
 	}
 }
