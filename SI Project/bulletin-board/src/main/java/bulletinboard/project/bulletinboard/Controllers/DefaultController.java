@@ -98,21 +98,8 @@ public class DefaultController {
     public List<User> deleteUser(@RequestBody User userData) {
         userService.deleteUser(userService.findByUsername(userData.getUsername()));
         return userService.getAllUsers(); 
-    }
+    } 
 
-
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public void updateUser(@RequestBody User oldUser, @RequestBody User newUser) {/*
-        User user3=userService.findByUsername(oldUser.getUsername());
-        userService.updateUser(user3, newUser);
-        userService.save(user3);
-
-        oldUser.setFirstName(newUser.getFirstName());
-        oldUser.setLastName(newUser.getLastName());
-        oldUser.setEmail(newUser.getEmail());
-        oldUser.setPassword(newUser.getPassword());
-
-
-    }*/
-    }
+    
+    
 }

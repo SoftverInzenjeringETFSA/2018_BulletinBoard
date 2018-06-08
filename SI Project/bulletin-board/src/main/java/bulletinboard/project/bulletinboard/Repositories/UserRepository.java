@@ -17,7 +17,6 @@ public interface UserRepository extends MongoRepository<User, String> {
     public User findTopByOrderByCreatedDesc();
     public List<User> findAll();
     void delete(User user);
-    /* void update(User user1, User user2);*/
 
 
 }

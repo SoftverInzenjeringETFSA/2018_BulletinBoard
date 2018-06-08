@@ -7,7 +7,6 @@ import Help from '../components/help/Help';
 import Login from '../components/login/Login';
 import Register from '../components/register/Register';
 import Preferences from '../components/preferences/Preferences';
-import Update from '../components/update/Update';
 
 export default (
   <Router>
@@ -18,7 +17,6 @@ export default (
       <Route path="/login" component={Login}/>
       <Route path="/register" component={Register}/>
       <Route path="/preferences" component={Preferences}/>
-      <Route path="/update" component={Update}/>
       <Route exact={true} path="/" component={Dashboard}/>
     </App>
   </Router>

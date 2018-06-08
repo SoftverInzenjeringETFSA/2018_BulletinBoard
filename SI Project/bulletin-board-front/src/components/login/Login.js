@@ -10,7 +10,7 @@ class Login extends Component {
 		username: '',
 		password: '',
 		errors: new Errors(),
-		toDashboard: true,
+		toDashboard: false,
 		toAdminboard: false
 	};
 
